@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hostel Management System</title>
+    <link th:href="@{/css/common.css}" rel="stylesheet" />
+</head>
+<body>
+
+<table class="main">
+  <tr class="header">
+    <td height="80px">
+      <!-- HEADER  -->
+      <div th:replace="/include/header :: header"></div>
+    </td>
+  </tr>
+  <tr class="upperMenu">
+    <td height="25px">
+      <!-- Upper Menu  -->
+      <div th:replace="/include/upperMenu :: upperMenu"></div>
+    </td>
+  </tr>
+  <tr>
+    <td height="350px">
+      <!-- Page content table -->
+      <table class="content">
+        <td width = "100px" >
+          <!--Left Side Menu  -->
+          <div th:replace="/include/roomLeftMenu :: roomLeftMenu"></div>
+        </td>
+        <td style="vertical-align: baseline ;" align="center">
+          <!--Main content  -->
+          <!--table with rooms  -->
+          <table class="roomList">
+            <tr>
+              <div class="description"><br>Available rooms:</div><br>
+            </tr>
+            <tr>
+              <th class =  "list">Number</th>
+              <th class =  "list">Standard</th>
+              <th class =  "list">Occupied</th>
+              <th class =  "list">Check in</th>
+
+            </tr>
+            <!-- loop over and print out customers  -->
+              <tr class =  "list" th:each="tempRoom : ${roomList}">
+                <td class =  "list" th:text="${tempRoom.number}"> </td>
+                <td class =  "list" th:text="${tempRoom.standard}"> </td>
+                <td class =  "list" th:text="${tempRoom.isOccupied}"> </td>
+                <td class =  "list"><a th:href="@{/guest/checkin(roomId=${tempRoom.id})}">Check in</a></td>
+              </tr>
+          </table>
+        </td>
+        <td width = "100px">
+          <!--Right Side Menu  -->
+
+        </td>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td height="25px">
+      <!-- Footer  -->
+
+    </td>
+  <tr>
+</table>
+
+</body>
+</html>

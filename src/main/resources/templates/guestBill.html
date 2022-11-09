@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hostel Management System</title>
+    <link th:href="@{/css/common.css}" rel="stylesheet" />
+</head>
+<body>
+
+<table class="main">
+    <tr class="header">
+        <td height="80px">
+            <!-- HEADER  -->
+            <div th:replace="/include/header :: header"></div>
+        </td>
+    </tr>
+    <tr class="upperMenu">
+        <td height="25px">
+            <!-- Upper Menu  -->
+            <div th:replace="/include/upperMenu :: upperMenu"></div>
+        </td>
+    </tr>
+    <tr>
+        <td height="350px">
+            <!-- Page content table --> <!-- //<div style="overflow-x: auto;"> -->
+            <table class="content">
+                <tr>
+                    <td width="100px">
+                        <!--Left Side Menu  -->
+                        <div th:replace="/include/guestLeftMenu :: guestLeftMenu"></div>
+                    </td>
+                    <td>
+                        <!--Main content  -->
+                        <!--internal table  -->
+
+                        <table style="vertical-align: top;" align="center" class = "billTable">
+                            <tr >
+                                <td colspan="4"><div class="description">Details:</div></td>
+                            </tr>
+                            <tr >
+                                <td>First Name: </td>
+                                <td th:text="${guest.firstName}"> </td>
+                            </tr>
+
+                            <tr >
+                                <td>Last Name: </td>
+                                <td th:text="${guest.lastName}"> </td>
+                            </tr>
+
+                            <tr>
+                                <td>Room number: </td>
+                                <td th:text="${room.number}"> </td>
+                            </tr>
+
+                            <tr>
+                                <td>Room standard: </td>
+                                <td th:text="${room.standard}"> </td>
+                            </tr>
+                            <tr>
+                                <td>Rate: </td>
+                                <td>[[${rate}]] $</td>
+                            </tr>
+                            <tr>
+                                <td>Number of nights: </td>
+                                <td th:text="${nightsNumber}"> </td>
+                            </tr>
+                            <tr>
+                                <td>Tax (24% VAT): </td>
+                                <td>[[${tax}]] $</td>
+                            </tr>
+                            <tr>
+                                <td>Total: </td>
+                                <td>[[${total}]] $</td>
+                            </tr>
+                            <tr>
+                                <td>Checkout status: </td>
+                                <td>
+                                    <div th:if="${guest.isCheckedout}">
+                                        Checked out
+                                    </div>
+                                    <div th:unless="${guest.isCheckedout}">
+                                        <b>NOT</b> Checked out (<a th:href="@{/guest/checkout(guestId=${guest.id})}">Checkout</a>)
+                                    </div>
+                            </tr>
+
+                            <tr>
+                                <td>
+
+                                </td>
+
+                                <td>
+
+                                </td>
+                            </tr>
+
+                        </table><td width="100px">
+                    <!--Right Side Menu  -->
+
+                </td>
+                </tr>
+            </table> <!-- </div> -->
+        </td>
+    </tr>
+    <tr>
+        <td height="25px">
+            <!-- Footer  -->
+
+        </td>
+    <tr>
+</table>
+
+</body>
+</html>

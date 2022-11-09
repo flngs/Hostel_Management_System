@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hostel Management System</title>
+    <link th:href="@{/css/common.css}" rel="stylesheet" />
+</head>
+<body>
+
+<table class="main">
+    <tr class="header">
+        <td height="80px">
+            <!-- HEADER  -->
+            <div th:replace="/include/header :: header"></div>
+        </td>
+    </tr>
+    <tr class="upperMenu">
+        <td height="25px">
+            <!-- Upper Menu  -->
+            <div th:replace="/include/upperMenu :: upperMenu"></div>
+        </td>
+    </tr>
+    <tr>
+        <td height="350px">
+            <!-- Page content table --> <!-- //<div style="overflow-x: auto;"> -->
+            <table class="content">
+                <tr>
+                    <td width="100px">
+                        <!--Left Side Menu  -->
+<!--                        <div th:replace="/include/guestLeftMenu :: guestLeftMenu"></div> -->
+                    </td>
+                    <td>
+                        <!--Main content  --> <!--table with guests  --> <!-- <div class="description">Hotel status:</div> <br> -->
+                        <!--internal table  -->
+                        <table style="vertical-align: top;" align="center">
+                            <tr>
+                                <td colspan="4"><div class="description">Hostel
+                                    status:</div></td>
+                            </tr>
+                            <tr>
+                                <!--internal table cell one  -->
+                                <td class="statusTable">
+                                    <!--status table  -->
+                                    <table class="billTable">
+                                        <!-- Heading  -->
+                                        <tr>
+                                            <th>Rooms:</th>
+                                            <th></th>
+                                        </tr>
+                                        <!-- First row  -->
+                                        <tr>
+                                            <td>Number of rooms:</td>
+                                            <td><div style="font-weight: bold">
+                                                <tab1 th:text="${numberOfRooms}"/> </div></td>
+
+
+                                        </tr>
+                                        <tr>
+                                            <td>Occupied rooms:</td>
+                                            <td><div style="font-weight: bold">
+                                                <tab1 th:text="${numberOfOccupiedRooms}"/> </div></td>
+
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>Free rooms:</td>
+                                            <td><div style="font-weight: bold">
+                                                <tab1 th:text="${numberOfVacantRooms}"/> </div></td>
+
+
+                                        </tr>
+
+                                    </table>
+                                </td>
+
+                                <!--internal table cell two  -->
+                                <td>
+                                <th><tab1 /></th>
+                                </td>
+
+                                <!--internal table cell three  -->
+                                <td class="statusTable">
+                                    <table class="statusRight">
+                                        <tr>
+                                            <th>Guests:</th>
+                                            <th></th>
+                                        </tr>
+                                        <tr>
+                                            <td>Number of Guests:</td>
+                                            <td><div style="font-weight: bold">
+                                                <tab1 th:text="${numberOfGuests}"/> </div></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Upcoming checkouts:</td>
+                                            <td><div style="font-weight: bold">
+                                                <tab1 th:text="${upcommingCheckOuts}"/> </div></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                        </table>
+                        <br>
+                        <br>
+                        <div class="error"> <b th:text="${noAdminLoggedIn}"> </b></div>
+                    </td>
+
+                    <td width="100px">
+                        <!--Right Side Menu  -->
+
+                    </td>
+                </tr>
+            </table> <!-- </div> -->
+        </td>
+    </tr>
+    <tr>
+        <td height="25px">
+            <!-- Footer  -->
+
+        </td>
+    <tr>
+</table>
+
+</body>
+</html>

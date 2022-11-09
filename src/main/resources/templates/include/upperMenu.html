@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>upperMenu</title>
+</head>
+<body>
+<div class = "uppermenuText" th:fragment="upperMenu">
+    |
+    <a th:href="@{/hotelStatus/}" class = "uppermenu">Hostel Status</a>
+    |
+    <a th:href="@{/guest/list}" class = "uppermenu">Guest</a>
+    |
+    <a th:href="@{/room/list}" class = "uppermenu">Rooms</a>
+    |
+    <a th:href="@{/commingCheckouts/list}" class = "uppermenu">Next checkouts</a>
+    |
+    <a th:href="@{/administration/}" class = "uppermenu">Administration</a>
+    |
+</div>
+</body>
+</html>

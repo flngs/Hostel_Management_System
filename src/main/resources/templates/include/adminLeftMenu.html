@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>AdminLeftMenu</title>
+</head>
+<body>
+    <div class = "leftmenuText" th:fragment="adminLeftMenu">
+        <a th:href="@{/administration/}" class = "leftmenu">Users list</a>
+        <br><br>
+        <a th:href="@{/administration/registerUser}" class = "leftmenu">Register user</a>
+        <br><br>
+    </div>
+</body>
+</html>

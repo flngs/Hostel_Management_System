@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link th:href="@{/css/common.css}" rel="stylesheet" />
+</head>
+<body>
+<table class="main">
+    <tr class="header" >
+        <td height="80px">
+            <!-- HEADER  -->
+            <div th:replace="/include/header :: header"></div>
+        </td>
+    </tr>
+    <tr class="upperMenu">
+        <td height="25px">
+            <!-- Upper Menu  -->
+            <div th:replace="/include/upperMenu :: upperMenu"></div>
+        </td>
+    </tr>
+    <tr  align="centre">
+        <td height="350px">
+            <!-- Page content table -->
+            <table class="content">
+                <td width = "100px" >
+                    <!--Left Side Menu  -->
+
+                </td>
+                <td align="center" >
+                    <!--Main content  -->
+                    <!--table with rooms  -->
+
+                    <div class="error" th:text="${loginError}"><b></b></div>
+                    <form action = '' method = "post">
+                        <table class="loginForm">
+                            <tr>
+                                <td align="left" class = "loginForm"><label >User name:</label> </td>
+                                <td><input type="text" id="login" name="login" placeholder="User name" class="form-control"/></td>
+                            </tr>
+                            <tr>
+                                <td align="left" class = "loginForm"><label>Password:</label></td>
+                                <td><input type="password" id="password" name="password" placeholder="Password" class="form-control"/></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="4">
+                                    <button id="loginButton" class="form-control">Login</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+
+                </td>
+                <td width = "100px">
+
+                </td>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

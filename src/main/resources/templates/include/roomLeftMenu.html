@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>RoomLeftMenu</title>
+</head>
+<body>
+    <div class = "leftmenuText" th:fragment="roomLeftMenu">
+        <a th:href ="@{/room/occupiedRoomlist}" class = "leftmenu">Occupied rooms list</a> <br><br>
+        <a th:href ="@{/room/list}" class = "leftmenu">Vacant rooms list</a> <br><br>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Header</title>
+</head>
+<body>
+<div th:fragment="header">
+    <h1 class="header">Hostel Management System</h1>
+
+<!--    #strings.isEmpty(session.loggedInUser.firstName)-->
+        <div class="loginOut" th:if="${session.loggedInUser != null}">
+            Hello [[${session.loggedInUser.firstName}]]
+            <a th:href="@{/logout}" class="loginOut">Logout</a>
+        </div>
+        <div class="loginOut" th:unless="${session.loggedInUser != null}">
+            <a th:href="@{/login}" class="loginOut">Login</a>
+        </div>
+
+</div>
+</body>
+</html>

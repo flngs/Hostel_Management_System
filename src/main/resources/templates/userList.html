@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hostel Management System</title>
+    <link th:href="@{/css/common.css}" rel="stylesheet" />
+</head>
+<body>
+
+<table class="main">
+    <tr class="header">
+        <td height="80px">
+            <!-- HEADER  -->
+            <div th:replace="/include/header :: header"></div>
+        </td>
+    </tr>
+    <tr class="upperMenu">
+        <td height="25px">
+            <!-- Upper Menu  -->
+            <div th:replace="/include/upperMenu :: upperMenu"></div>
+        </td>
+    </tr>
+    <tr>
+        <td height="350px">
+            <!-- Page content table -->
+            <table class="content">
+                <td width = "100px" >
+                    <!--Left Side Menu  -->
+                    <div th:replace="/include/adminLeftMenu :: adminLeftMenu"></div>
+                </td>
+                <td style="vertical-align: baseline ;" align="center">
+                    <!--Main content  -->
+                    <!--table with rooms  -->
+                    <table class="roomList">
+                        <tr>
+                            <div class="description"><br>Users registered:</div><br>
+                        </tr>
+                        <tr>
+                            <th class =  "list">First name</th>
+                            <th class =  "list">Last name</th>
+                            <th class =  "list">Login</th>
+                            <th class =  "list">Action</th>
+
+                        </tr>
+                        <!-- loop over and print out customers  -->
+                            <tr class =  "list" th:each="tempUser : ${userList}">
+                                <td class =  "list" th:text="${tempUser.firstName}"> </td>
+                                <td class =  "list" th:text="${tempUser.lastName}"> </td>
+                                <td class =  "list" th:text="${tempUser.login}"> </td>
+                                <td class =  "list"><a th:href="@{/administration/delete(tempUserId=${tempUser.id})}">Delete</a> |
+                                    <a th:href="@{/administration/updateUser(tempUserId=${tempUser.id})}">Update</a></td>
+                            </tr>
+                    </table>
+                </td>
+                <td width = "100px">
+                    <!--Right Side Menu  -->
+
+                </td>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td height="25px">
+            <!-- Footer  -->
+
+        </td>
+    <tr>
+</table>
+
+</body>
+</html>

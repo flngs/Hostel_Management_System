@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>GuestLeftMenu</title>
+</head>
+<body>
+    <div class = "leftmenuText" th:fragment="guestLeftMenu">
+        <a th:href ="@{/guest/list}" class = "leftmenu">Guest list</a>
+        <br><br>
+        <a th:href ="@{/guest/showAddGuest}" class = "leftmenu">Check in</a>
+        <br><br>
+        <a th:href ="@{/guest/checkInToOccupiedRoom}" class = "leftmenu">Check in to occupied room</a>
+        <br><br>
+        <a th:href ="@{/guest/archivedGuestsList}" class = "leftmenu">Archived guests</a>
+        <br><br>
+</div>
+</body>
+</html>

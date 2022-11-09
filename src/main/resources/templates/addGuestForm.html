@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hostel Management System</title>
+
+    <!--Data picker code  -->
+    <link rel="stylesheet"
+          href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#datepicker" ).datepicker({ dateFormat: "yy-mm-dd" });
+        } );
+    </script>
+
+    <link th:href="@{/css/common.css}" rel="stylesheet" />
+
+</head>
+<body>
+
+<table class="main">
+    <tr class="header">
+        <td height="80px">
+            <!-- HEADER  -->
+            <div th:replace="/include/header :: header"></div>
+        </td>
+    </tr>
+    <tr class="upperMenu">
+        <td height="25px">
+            <!-- Upper Menu  -->
+            <div th:replace="/include/upperMenu :: upperMenu"></div>
+        </td>
+    </tr>
+    <tr>
+        <td height="350px">
+            <!-- Page content table -->
+            <table class="content">
+                <td width="100px">
+                    <!--Left Side Menu  -->
+                    <div th:replace="/include/guestLeftMenu :: guestLeftMenu"></div>
+                </td>
+                <td align="center">
+                    <!--Main content  -->
+                    <!--Add guest form  -->
+                    <div class="description">Please enter the guest data:</div>
+                    <form action="#" th:action="@{/guest/saveGuest}" th:object="${guest}" method="post">
+
+                        <!--  need to associate this data with customer id -->
+                        <input type="hidden" th:field="*{id}">
+
+                        <table class="addGuestForm">
+                            <tbody >
+                            <tr>
+                                <td><label>First name:</label></td>
+                                <td><input type="text" th:field="*{firstName}">
+                                    <p th:if="${#fields.hasErrors('firstName')}" th:errorclass="error" th:errors="*{firstName}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label>Last name:</label></td>
+                                <td><input type="text" th:field="*{lastName}">
+                                    <p th:if="${#fields.hasErrors('lastName')}" th:errorclass="error" th:errors="*{lastName}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><label>ID number:</label></td>
+                                <td><input type="text" th:field="*{idNumber}">
+                                    <p th:if="${#fields.hasErrors('idNumber')}" th:errorclass="error" th:errors="*{idNumber}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label>Phone number:</label></td>
+                                <td><input type="text" th:field="*{phoneNumber}">
+                                    <p th:if="${#fields.hasErrors('phoneNumber')}" th:errorclass="error" th:errors="*{phoneNumber}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><label>Room:</label></td>
+                                <td><select th:field="*{room}">
+                                    <option th:value="${selectedRoom.getId()}"
+                                            th:text="${selectedRoom.getNumber()}">
+                                    </option>
+                                    <option th:each="vacantRoom : ${roomsMap}"
+                                            th:value="${vacantRoom.key}"
+                                            th:text="${vacantRoom.key}">
+                                    </option>
+                                    </select>
+                                    <p th:if="${#fields.hasErrors('idNumber')}" th:errorclass="error" th:errors="*{idNumber}"/>
+                                </td>
+
+                                <td />
+                            <tr>
+                                <td><label>Checkout date:</label></td>
+                                <td>
+                                    <input th:field="*{checkoutDate}" th:id="datepicker" />
+                                    <tr>
+                                <p th:if="${#fields.hasErrors('checkoutDate')}" th:errorclass="error" th:errors="*{checkoutDate}"/>
+                                    </tr>
+                                </td>
+                            </tr>
+                            </tr>
+                            <tr>
+                                <br>
+                            <tr>
+                                <td />
+                                <td><label></label></td>
+                                <td><input type="submit" value="Save" class="save" /></td>
+
+                            </tr>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </td>
+                <td width="100px">
+                    <!--Right Side Menu  -->
+
+                </td>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td height="25px">
+            <!-- Footer  -->
+
+        </td>
+    <tr>
+</table>
+
+</body>
+</html>
